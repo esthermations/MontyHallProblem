@@ -1,6 +1,3 @@
-# This is just an example to get you started. A typical binary package
-# uses this file as the main entry point of the application.
-
 import random
 
 type
@@ -49,6 +46,8 @@ proc playGame(doSwitch: bool, times: Natural = 100, echoResults: bool = false): 
         # same principle as before
       if echoResults: echo "Switched choice to ", newChoice
       finalChoice = newChoice
+    else:
+      if echoResults: echo "Sticking with door ", firstChoice
 
     # This should be impossible...
     assert g[finalChoice] != Goat
@@ -70,7 +69,7 @@ proc main() =
   randomize() # Initialise the RNG
 
   let numTimes = 5_000_000
-  let doEcho = false
+  let doEcho   = false # Set to true to print stuff out as games are played
 
   if doEcho: echo "-------- No  switching! --------"
   let winsWithoutSwitching = playGame(doSwitch = false, numTimes, echoResults = doEcho)
