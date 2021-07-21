@@ -11,3 +11,4 @@ bin           = @["MontyHallProblem"]
 # Dependencies
 
 requires "nim >= 1.4.2"
+requires "cligen >= 1.5.5"
